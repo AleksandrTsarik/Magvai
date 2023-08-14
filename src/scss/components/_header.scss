@@ -1,0 +1,266 @@
+.header {
+	background-color: $topBg;
+	@media ($desktop) {
+		background-color: $mobile;
+	}
+}
+.header-strip {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: $white;
+	position: relative;
+	padding: 30px 0;	
+	&__left {
+		display: flex;
+		align-items: center;
+		@media ($phone) {
+			justify-content: space-between;
+			width: 100%;
+		}
+	}
+	&__right {
+		display: flex;
+		align-items: center;
+		@media ($phone)  {
+			display: none;
+		}
+		&.open-menu {
+			@media ($phone) {
+				display: flex;
+				position: absolute;
+				top: 420px;
+				left: 0;
+				z-index: 120;
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+			}
+		}
+	}
+	&__menu {
+		@media ($phone) {
+			position: absolute;
+		}
+		&.overlay-menu {
+			position: fixed;
+		}
+	}
+	&__logo {
+		margin-right: 75px;
+		display: block;
+		transition: 0.3s;
+		width: 157px;
+		@media ($desktopB) {
+			margin-right: 25px;
+		}
+		@media ($desktop) {
+			order: 3;
+			margin-right: 0;
+			
+		}
+		img {
+			height: 60px;
+		}
+		&:hover {
+			filter: drop-shadow(0 0 10px rgba(250,250,250,0.5));
+		}
+	}
+	&__phone {
+		position: relative;
+		@media ($phone) {
+			width: calc(100% - 30px);
+			margin-bottom: 10px;
+		}
+		a {
+			display: block;
+			position: relative;
+			border: solid 1px $white;
+			height: 60px;
+			width: 60px;
+			display: flex;
+			margin-right: 10px;
+			transition: .3s;
+			cursor: pointer;
+			@media ($phone) {
+				width: 100%;
+			}
+			&:hover {
+				img {
+					animation-name: phone;
+				}
+			}
+		}
+		img {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			
+		}
+		
+	}
+	&__btn {
+		@media ($phone) {
+			width: calc(100% - 30px);
+		}
+		button {
+			width: 100%;
+			&::after {
+				display: none;
+			}
+		}
+	}
+	&__menu-list {
+		list-style-type: none;
+		display: flex;
+		align-items: center;
+		@media ($desktop) {
+			display: none;
+		}
+		&.open-menu {
+			display: block;
+			padding-left: 45px;
+			min-height: 468px;
+
+			li + li {
+				margin-left: 0;
+			}
+			a {
+				font-size: 36px;
+				font-weight: 700;
+				line-height: 150%;
+				text-align: left;
+				margin-bottom: 15px;
+				color: $mobile;
+				
+				text-shadow: 1px 0 1px $textFiled, 
+				0 1px 1px $textFiled, 
+				-1px 0 1px $textFiled, 
+				0 -1px 1px $textFiled;
+				@media ($phone) {
+					font-size: 20px;
+				}
+			}
+		}
+		a {
+			color: $white;
+			font-size: 14px;
+
+			text-transform: uppercase;
+			position: relative;
+			transition: 0.5s;
+			display: block;
+			@media ($desktopB) {
+				font-size: 12px;
+			}
+			&:after {
+				content: "";
+				display: block;
+				background-color: $white;
+				height: 1px;
+				width: 0%;
+				transition: 0.3s;
+				transform: translateX(-50%);
+				position: absolute;
+				left: 50%;
+			}
+			&:hover:after, &:hover:before {
+				width: 100%
+			}
+		}
+		li + li {
+			margin-left: 1em;
+		}
+	}
+}
+.burger-menu {
+	margin-right: 20%;
+	cursor: pointer;
+	height: 20px;
+	width: 30px;;
+	overflow: visible;
+	position: relative;
+	z-index:100;
+	display: none;
+	@media ($desktop) {
+		display: block;
+		order: 1;
+	}
+}
+
+.burger-menu span,
+.burger-menu span:before,
+.burger-menu span:after {
+	background: $white;
+	display: block;
+	height: 2.5px;
+	border-radius: 100px;
+	opacity: 1;
+	position: absolute;
+	transition: 0.3s ease-in-out;
+}
+.burger-menu {
+	span {
+		&::after, &:before {
+			content: '';
+		}
+	}
+}
+
+.burger-menu {
+	span {
+		right: 0px;
+		top: 10px;
+		width: 27px;
+		&::before{
+			left: 0px;
+			top: -7px;
+			width: 50%;
+		}
+		&::after{
+			left: 0px;
+			top: 7px;
+			width: 80%;
+		}
+	}
+	&.close {
+		span {
+			transform: rotate(-45deg);
+			top: 13px;
+			width: 27px;
+			&::before {
+				top: 0px;
+				transform: rotate(90deg);
+				width: 27px;
+			}
+			&::after {
+				top: 0px;
+				left:0;
+				transform: rotate(90deg);
+				opacity:0;
+				width:0;
+			}
+		}
+	}
+ }
+
+.anim-phone {
+	animation-duration: 1200ms;
+	animation-timing-function: ease;
+	animation-iteration-count: infinite;
+}
+@keyframes phone {
+	0% {
+		transform: scale(1.0) skew(30deg);
+	}
+	50% {
+		transform: scale(1.2) skew(30deg);
+	}
+	100% {
+		transform: scale(1.0) skew(30deg);
+	}
+
+}

@@ -1,0 +1,25 @@
+// если вы хотите использовать sass-переменные - удалите root
+
+// resp
+$desktopB: 'max-width: 1440px';
+$desktop: 'max-width: 1247px';
+$tablet: 'max-width: 1023px';
+$phone: 'max-width: 767px';
+$phoneL: 'max-width: 575px';
+$phoneS: 'max-width: 374px';
+$phoneSmall: 'max-width: 320px';
+
+//----colors
+
+$gold: #C2AB81;
+$white: #ffffff;
+$black: #000000;
+$text: #171717;
+$darkText: #666666;
+$lighTgray: #979797;
+$topBg: #3F3F3F;
+$mobile: #131313;
+$textFiled: #808080;
+//----fonts
+
+$Montserrat: 'Montserrat',Arial,sans-serif;
