@@ -1,5 +1,5 @@
 .header {
-	background-color: $topBg;
+	background-color: $bg;
 	@media ($desktop) {
 		background-color: $mobile;
 	}
@@ -22,6 +22,7 @@
 	&__right {
 		display: flex;
 		align-items: center;
+		margin: 0 10px 0 0;
 		@media ($phone)  {
 			display: none;
 		}
@@ -35,6 +36,13 @@
 				display: flex;
 				flex-direction: column;
 				width: 100%;
+			}
+		}
+		button {
+			@media ($phone) {
+				display: block;
+				width: calc(100% - 30px);
+				min-height: 60px;
 			}
 		}
 	}
@@ -153,6 +161,8 @@
 			position: relative;
 			transition: 0.5s;
 			display: block;
+			font-family: $Montserrat;
+			font-weight: 700;
 			@media ($desktopB) {
 				font-size: 12px;
 			}
@@ -254,13 +264,13 @@
 }
 @keyframes phone {
 	0% {
-		transform: scale(1.0) skew(30deg);
+		transform: scale(1.0) skew(15deg);
 	}
 	50% {
-		transform: scale(1.2) skew(30deg);
+		transform: scale(1.2) skew(15deg);
 	}
 	100% {
-		transform: scale(1.0) skew(30deg);
+		transform: scale(1.0) skew(15deg);
 	}
 
 }

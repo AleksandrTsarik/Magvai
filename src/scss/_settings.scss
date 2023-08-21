@@ -11,7 +11,7 @@ html, body {
 }
 body {
 	font-family: $Montserrat;
-  	background-color: $topBg;
+  	background-color: $bg;
 	&.is-hidden {
 		overflow: hidden;
 	}
@@ -54,20 +54,24 @@ button {
   font-weight: 700;
 }
 .skew {
-	transform: skew(-30deg);
+	transform: skew(-15deg);
 	&__inner {
-		transform: skew(30deg);
+		transform: skew(15deg);
 		display: block;
 	}
 }
 
 .btn {
 	background-color: $gold;
-	padding: 0 70px;
+	padding: 0 75px;
 	min-height: 60px;
 	color: $white;
 	position: relative;
 	white-space: nowrap;
+	@media ($phone) {
+		min-height: 45px;
+		padding: 0 47px;
+	}
 	&::after {
 		content: '';
 		display: block;
@@ -78,6 +82,7 @@ button {
 		width: 4px;
 		height: 100%;
 		background-color: $white;
+		z-index: 10;
 	}
 }
 .title {
@@ -88,7 +93,7 @@ button {
 	@media ($tablet) {
 		font-size: 38px;
 	}
-	@media ($phoneS) {
+	@media ($phone) {
 		font-size: 20px;
 	}
 }
